@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gelatto Taxi 24/7</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+.button {
+  display: block;
+  width: 80%;
+  margin: 15px auto;
+  padding: 18px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+}
+
+.taxi { background: #FFD700; color: black; }
+.call { background: green; color: white; }
+</style>
+</head>
+
+<body>
+
+<h1>Gelatto Taxi 24/7 🚖</h1>
+<p>Pide tu taxi rápido y seguro</p>
+
+<button class="button taxi" onclick="pedirTaxi()">
+🚖 PEDIR TAXI
+</button>
+
+<button class="button call" onclick="llamar()">
+📞 LLAMAR
+</button>
+
+<script>
+function pedirTaxi() {
+  window.location.href = "https://wa.me/51932988222?text=Hola%20quiero%20un%20taxi%20Gelatto%20🚖";
+}
+
+function llamar() {
+  window.location.href = "tel:+51932988222";
+}
+</script>
+
+</body>
+</html>
