@@ -75,6 +75,18 @@ function initMap() {
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
+  function calcularPrecio(distanciaKm) {
+  const tarifaBase = 3;
+  const precioKm = 1.5;
+  return tarifaBase + (distanciaKm * precioKm);
+}
+
+function pedirTaxi() {
+  let distancia = 5; // por ahora fijo (simulación)
+  let precio = calcularPrecio(distancia);
+
+  alert("🚖 Tu viaje cuesta S/ " + precio);
+}
 var map = L.map('mapa').setView([0, 0], 13);
 
 navigator.geolocation.getCurrentPosition(function(pos) {
