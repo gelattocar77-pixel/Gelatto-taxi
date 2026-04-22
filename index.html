@@ -72,27 +72,33 @@ function pedirTaxi() {
 
   alert("🚖 Tu viaje cuesta S/ " + precio);
 }
-var map = L.map('mapa').setView([0, 0], 13);
 
-navigator.geolocation.getCurrentPosition(function(pos) {
-  var lat = pos.coords.latitude;
-  var lng = pos.coords.longitude;
-
-  map.setView([lat, lng], 15);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data © OpenStreetMap contributors'
-  }).addTo(map);
-
-  L.marker([lat, lng]).addTo(map)
-    .bindPopup('Estás aquí 📍')
-    .openPopup();
-
-}, function(error) {
-  alert("Activa tu ubicación");
-});
 </script>
 
-  
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  var map = L.map('mapa').setView([0, 0], 13);
+
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    var lat = pos.coords.latitude;
+    var lng = pos.coords.longitude;
+
+    map.setView([lat, lng], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([lat, lng]).addTo(map)
+      .bindPopup('Estás aquí 📍')
+      .openPopup();
+
+  }, function() {
+    alert("Activa tu ubicación");
+  });
+
+});
+</script>  
 </body>
 </html>
