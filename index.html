@@ -57,7 +57,6 @@ function llamar() {
 </script>
 <script>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
   function calcularPrecio(distanciaKm) {
@@ -74,11 +73,16 @@ function pedirTaxi() {
 }
 
 </script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
   var map = L.map('mapa').setView([-13.41, -76.13], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data © OpenStreetMap contributors'
+  }).addTo(map);
 
   navigator.geolocation.getCurrentPosition(function(pos) {
     var lat = pos.coords.latitude;
@@ -86,19 +90,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     map.setView([lat, lng], 15);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data © OpenStreetMap contributors'
-    }).addTo(map);
-
     L.marker([lat, lng]).addTo(map)
       .bindPopup('Estás aquí 📍')
       .openPopup();
-
-  }, function() {
-    alert("Activa tu ubicación");
   });
 
 });
-</script>  
+</script>
+
 </body>
 </html>
