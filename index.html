@@ -56,22 +56,7 @@ function llamar() {
 }
 </script>
 <script>
-function initMap() {
-  const ubicacion = { lat: -13.41, lng: -76.13 };
 
-  const mapa = new google.maps.Map(document.getElementById("mapa"), {
-    zoom: 14,
-    center: ubicacion,
-  });
-
-  const marcador = new google.maps.Marker({
-    position: ubicacion,
-    map: mapa,
-  });
-}
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
