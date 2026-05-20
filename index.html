@@ -131,6 +131,35 @@ navigator.geolocation.getCurrentPosition(function(pos) {
     .openPopup();
 });
 });
+  function buscarDestino() {
+  let destino = document.getElementById("destino").value;
+
+  if(destino === "") {
+    alert("Escribe un destino");
+    return;
+  }
+
+  fetch("https://nominatim.openstreetmap.org/search?format=json&q=" + destino + ", Peru")
+    .then(response => response.json())
+    .then(data => {
+
+      if(data.length > 0) {
+
+        let latDestino = data[0].lat;
+        let lonDestino = data[0].lon;
+
+        map.setView([latDestino, lonDestino], 15);
+
+        L.marker([latDestino, lonDestino]).addTo(map)
+          .bindPopup("Destino 📍")
+          .openPopup();
+
+      } else {
+        alert("Destino no encontrado");
+      }
+
+    });
+  }
 </script>
 
 </body>
