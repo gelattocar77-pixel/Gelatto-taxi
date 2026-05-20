@@ -92,34 +92,20 @@ function pedirTaxi() {
 }
 
 </script>
+<div id="mapa" style="height:350px; margin-top:20px;"></div>
+
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
   var map = L.map('mapa').setView([-13.41, -76.13], 13);
-window.map = map;
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © OpenStreetMap contributors'
   }).addTo(map);
 
-  navigator.geolocation.getCurrentPosition(function(pos) {
-    var lat = pos.coords.latitude;
-    var lng = pos.coords.longitude;
-
-    map.setView([lat, lng], 15);
-
-    L.marker([lat, lng]).addTo(map)
-      .bindPopup('Estás aquí 📍')
-      .openPopup();
-  });
-
-
-
-      
-    });
-}
+});
 </script>
 
 </body>
