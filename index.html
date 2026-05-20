@@ -69,10 +69,20 @@ function llamar() {
 
 <script>
   function calcularPrecio(distanciaKm) {
-  const tarifaBase = 3;
-  const precioKm = 1.5;
-  return tarifaBase + (distanciaKm * precioKm);
+
+const tarifaBase = 4;
+const precioKm = 2;
+const precioMinimo = 7;
+
+let precio = tarifaBase + (distanciaKm * precioKm);
+
+if (precio < precioMinimo) {
+precio = precioMinimo;
 }
+
+return precio;
+
+  }
 
 function pedirTaxi() {
   let distancia = 5; // por ahora fijo (simulación)
