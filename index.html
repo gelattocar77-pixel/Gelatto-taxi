@@ -115,26 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 });
-window.buscarDestino = function() {
-  var destino = document.getElementById("destino").value;
 
-  if (destino === "") {
-    alert("Escribe un destino");
-    return;
-  }
-
-  fetch("https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(destino + ", Chincha, Peru"))
-    .then(response => response.json())
-    .then(data => {
-      if (data.length > 0) {
-        var lat = data[0].lat;
-        var lon = data[0].lon;
-
-        map.setView([lat, lon], 16);
-
-        L.marker([lat, lon]).addTo(map)
-          .bindPopup("Destino: " + destino)
-          .openPopup();
       
     });
 }
