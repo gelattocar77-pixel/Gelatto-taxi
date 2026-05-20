@@ -57,7 +57,7 @@ body {
 <div id="mapa" style="height:350px; margin-top:20px;"></div>
 <script>
 function pedirTaxi() {
-window.location.href = "https://wa.me/51932988222?text=Hola%20quiero%20un%20taxi%20a%20" + document.getElementById('destino').value;
+window.location.href = "https://wa.me/51932988222?text=Hola%20quiero%20un%20taxi%20desde%20mi%20ubicacion%20hasta%20" + document.getElementById('destino').value + "%20.%20Precio%20aprox:%20" + document.getElementById('precioTexto').innerText;
 }
 
 function llamar() {
