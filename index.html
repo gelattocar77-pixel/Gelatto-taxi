@@ -135,12 +135,7 @@ window.buscarDestino = function() {
         L.marker([lat, lon]).addTo(map)
           .bindPopup("Destino: " + destino)
           .openPopup();
-        var distancia = 5;
-
-var precio = calcularPrecio(distancia);
-
-alert("Precio aprox: S/ " + precio);
-      } 
+      
     });
 }
 </script>
