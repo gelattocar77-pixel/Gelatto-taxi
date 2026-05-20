@@ -87,7 +87,7 @@ function pedirTaxi() {
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
-  var map = L.map('mapa').setView([-13.41, -76.13], 13);
+  window.map = L.map('mapa').setView([-13.41, -76.13], 13);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © OpenStreetMap contributors'
