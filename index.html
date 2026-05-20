@@ -45,6 +45,15 @@ body {
 <button class="button call" onclick="llamar()">
 📞 LLAMAR
 </button>
+<input type="text" id="destino" placeholder="¿A dónde vas?" style="width:90%;padding:10px;border-radius:10px;font-size:16px;">
+
+<br><br>
+
+<button onclick="buscarDestino()" style="padding:10px 20px;border:none;border-radius:10px;background:#FFD700;font-weight:bold;border-radius:10px;">
+🔍 Buscar destino
+</button>
+
+<br><br>  
 <div id="mapa" style="height:300px;"></div>
 <script>
 function pedirTaxi() {
