@@ -116,7 +116,7 @@ function pedirTaxi() {
 document.addEventListener("DOMContentLoaded", function() {
 
   var map = L.map('mapa').setView([-13.41, -76.13], 13);
-
+window.map = map;
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © OpenStreetMap contributors'
   }).addTo(map);
@@ -148,9 +148,9 @@ navigator.geolocation.getCurrentPosition(function(pos) {
         let latDestino = data[0].lat;
         let lonDestino = data[0].lon;
 
-        map.setView([latDestino, lonDestino], 15);
+        window.map.setView([latDestino, lonDestino], 15);
 
-        L.marker([latDestino, lonDestino]).addTo(map)
+        L.marker([latDestino, lonDestino]).addTo(window.map)
           .bindPopup("Destino 📍")
           .openPopup();
 
