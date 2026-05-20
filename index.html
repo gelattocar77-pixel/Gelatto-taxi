@@ -123,7 +123,8 @@ window.map = map;
 navigator.geolocation.getCurrentPosition(function(pos) {
   var lat = pos.coords.latitude;
   var lng = pos.coords.longitude;
-
+window.origenLat = lat;
+window.origenLng = lng;
   map.setView([lat, lng], 15);
 
   L.marker([lat, lng]).addTo(map)
