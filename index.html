@@ -157,17 +157,15 @@ window.origenLng = lng;
   function buscarDestino() {
   let destino = document.getElementById("destino").value;
 
-  if(destino === "") {
+  if (destino === "") {
     alert("Escribe un destino");
     return;
   }
 
-  fetch("https://nominatim.openstreetmap.org/search?format=json&q=" + destino + ", Peru")
+  fetch("https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(destino + ", Peru"))
     .then(response => response.json())
     .then(data => {
-
-      if(data.length > 0) {
-
+      if (data.length > 0) {
         let latDestino = data[0].lat;
         let lonDestino = data[0].lon;
 
@@ -177,12 +175,45 @@ window.origenLng = lng;
           .bindPopup("Destino 📍")
           .openPopup();
 
+        let distanciaKm = calcularDistancia(window.origenLat, window.origenLng, latDestino, lonDestino);
+
+        let precio = 0;
+
+        if (distanciaKm <= 30) {
+          precio = 4 + (distanciaKm * 1.40);
+        } else {
+          precio = 4 + (distanciaKm * 1.10);
+        }
+
+        if (precio < 7) {
+          precio = 7;
+        }
+
+        precio = Math.round(precio);
+
+        document.getElementById("precioTexto").innerHTML =
+          "Precio aprox: S/ " + precio;
+
       } else {
         alert("Destino no encontrado");
       }
-
     });
-  }
+}
+
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) *
+    Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
 </script>
 
 </body>
