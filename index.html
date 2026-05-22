@@ -82,15 +82,22 @@ function llamar() {
   let destino = document.getElementById("destino").value.toLowerCase();
   let precio = 0;
 
-  if (destino.includes("hacienda")) {
-    precio = 30;
-  } else if (destino.includes("carmen")) {
-    precio = 25;
-  } else if (destino.includes("plaza")) {
-    precio = 8;
-  } else {
-    precio = 12;
-  }
+if(distanciaKm <= 30) {
+
+precio = 4 + (distanciaKm * 1.40);
+
+}
+else {
+
+precio = 4 + (distanciaKm * 1.10);
+
+}
+
+if(precio < 7) {
+precio = 7;
+}
+
+precio = Math.round(precio);
 
   document.getElementById("precioTexto").innerHTML = "Precio aprox: S/ " + precio;
   }
