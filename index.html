@@ -260,6 +260,13 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
  setTimeout(() => {
   document.getElementById("splash").style.display = "none";
 }, 2500); 
+  function deliveryMandados() {
+window.location.href =
+"https://wa.me/51932988222?text=" +
+encodeURIComponent(
+"📦 Hola, deseo un DELIVERY o MANDADO con Gelatto Taxi."
+);
+  }
 </script>
 <div id="splash">
   <div class="splash-content">
