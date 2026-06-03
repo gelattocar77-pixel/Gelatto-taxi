@@ -99,19 +99,10 @@ body {
 <script>
  function pedirTaxi() {
 
-let destino = document.getElementById("destino").value;
-
-let precio = document.getElementById("precioTexto").innerText;
-
-let ubicacion = "https://www.google.com/maps?q=" + window.origenLat + "," + window.origenLng;
-
 window.location.href =
 "https://wa.me/51932988222?text=" +
 encodeURIComponent(
-"Hola quiero un taxi Gelatto 🚕\n\n" +
-"📍 Recojo: " + ubicacion + "\n\n" +
-"📌 Destino: " + destino + "\n\n" +
-precio
+"🚕 Hola, deseo solicitar movilidad con Gelatto Taxi.\n\n📍 Recojo:\n📌 Destino:\n\nQuisiera consultar mi tarifa personalizada."
 );
 
  } 
