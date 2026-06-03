@@ -98,14 +98,30 @@ body {
 </p>
 <script>
  function pedirTaxi() {
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    let lat = pos.coords.latitude;
+    let lng = pos.coords.longitude;
+    let ubicacion = "https://www.google.com/maps?q=" + lat + "," + lng;
 
-window.location.href =
-"https://wa.me/51932988222?text=" +
-encodeURIComponent(
-"🚕 Hola, deseo solicitar movilidad con Gelatto Taxi.\n\n📍 Recojo:\n📌 Destino:\n\nQuisiera consultar mi tarifa personalizada."
-);
-
- } 
+    window.location.href =
+      "https://wa.me/51932988222?text=" +
+      encodeURIComponent(
+        "🚕 Hola, deseo solicitar movilidad con Gelatto Taxi.\n\n" +
+        "📍 Mi ubicación: " + ubicacion + "\n\n" +
+        "📌 Destino:\n\n" +
+        "Quisiera consultar mi tarifa personalizada."
+      );
+  }, function() {
+    window.location.href =
+      "https://wa.me/51932988222?text=" +
+      encodeURIComponent(
+        "🚕 Hola, deseo solicitar movilidad con Gelatto Taxi.\n\n" +
+        "📍 Mi ubicación:\n" +
+        "📌 Destino:\n\n" +
+        "Quisiera consultar mi tarifa personalizada."
+      );
+  });
+}
 
 function llamar() {
   window.location.href = "tel:+51932988222";
